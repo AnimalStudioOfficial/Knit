@@ -28,12 +28,7 @@ jobs:
       - name: Build place file
         run: |
           rojo build publish.project.json -o Knit.rbxl
-      - name: Publish Knit to Roblox
-        shell: bash
-        env:
-          REMODEL_AUTH: ${{ secrets.RBX_AUTH }}
-        run: |
-          remodel run publish.lua
+
       - name: Get version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
